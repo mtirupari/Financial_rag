@@ -1,0 +1,12 @@
+.env
+.env.*
+!.env.example
+.DS_Store
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+.tools/
+.pytest_cache/
+data/experiments/

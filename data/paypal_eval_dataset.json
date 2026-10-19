@@ -1,0 +1,42 @@
+[
+  {
+    "question": "What were PayPal's total net revenues for the year ended December 31, 2024?",
+    "ground_truth": "PayPal's total net revenues for 2024 were $31,797 million."
+  },
+  {
+    "question": "What were PayPal's basic and diluted GAAP earnings per share in 2024?",
+    "ground_truth": "PayPal's basic GAAP earnings per share were $4.03 and diluted GAAP earnings per share were $3.99 for 2024."
+  },
+  {
+    "question": "How much technology and development expense did PayPal report in 2024?",
+    "ground_truth": "PayPal reported $2,979 million of technology and development expense in 2024."
+  },
+  {
+    "question": "According to PayPal's 2024 Form 10-K, what business risks could cybersecurity breaches create?",
+    "ground_truth": "Cybersecurity breaches could expose customer data, increase remediation costs and third-party liabilities, reduce customer confidence and use of PayPal's services, damage its reputation and brands, divert management attention, and lead to litigation, regulatory investigations, fines, penalties, or customer compensation obligations."
+  },
+  {
+    "question": "What was PayPal's GAAP net income for the year ended December 31, 2024?",
+    "ground_truth": "PayPal's GAAP net income for 2024 was $4,147 million."
+  },
+  {
+    "question": "What were PayPal's transaction revenues in 2024?",
+    "ground_truth": "PayPal's transaction revenues in 2024 were $28,842 million."
+  },
+  {
+    "question": "What were PayPal's revenues from other value added services in 2024?",
+    "ground_truth": "PayPal's revenues from other value added services in 2024 were $2,955 million."
+  },
+  {
+    "question": "What was PayPal's total payment volume in 2023, and how many active accounts did it have at December 31, 2023?",
+    "ground_truth": "PayPal processed $1.53 trillion of total payment volume during 2023 and had 426 million active accounts as of December 31, 2023."
+  },
+  {
+    "question": "What was PayPal's total payment volume in 2025, and how many active accounts did it have at December 31, 2025?",
+    "ground_truth": "PayPal processed $1.79 trillion of total payment volume during 2025 and had 439 million active accounts as of December 31, 2025."
+  },
+  {
+    "question": "How did PayPal's year-end active accounts change across 2023, 2024, and 2025, and what was the absolute increase from 2023 to 2025?",
+    "ground_truth": "PayPal had 426 million active accounts at December 31, 2023, 434 million at December 31, 2024, and 439 million at December 31, 2025. The absolute increase from 2023 to 2025 was 13 million accounts (439 million minus 426 million)."
+  }
+]

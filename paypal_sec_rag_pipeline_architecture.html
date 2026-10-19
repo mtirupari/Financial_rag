@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PayPal SEC RAG · Pipeline architecture</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#e9eef4;color:#24364b;font-family:Arial,sans-serif}
+nav{max-width:1400px;margin:auto;display:flex;gap:18px;align-items:center;padding:18px 24px;flex-wrap:wrap}
+nav strong{margin-right:auto}a{color:#174c85;text-underline-offset:4px}button{border:1px solid #94a3b8;border-radius:6px;background:white;padding:8px 14px;cursor:pointer}
+main{max-width:1400px;margin:0 auto;background:white;box-shadow:0 8px 40px #102c4f12}svg{display:block;width:100%;height:auto}
+footer{max-width:1400px;margin:auto;padding:22px 24px;line-height:1.6;font-size:14px}
+@media(max-width:700px){main{overflow-x:auto}svg{min-width:1000px}nav{font-size:14px}}
+@media print{@page{size:A3 portrait;margin:8mm}body{background:white}nav,footer{display:none}main{box-shadow:none}svg{width:100%;min-width:0}}
+</style></head><body>
+<nav aria-label="Diagram exports"><strong>PayPal SEC RAG / Architecture</strong>
+<a href="paypal_sec_rag_pipeline_architecture.png" download>Download PNG</a><a href="paypal_sec_rag_pipeline_architecture.svg" download>Download SVG</a>
+<button type="button" onclick="window.print()">Print / Save PDF</button></nav>
+<main><svg xmlns="http://www.w3.org/2000/svg" width="1400" height="2290" viewBox="0 0 1400 2290" role="img" aria-labelledby="title desc">
+<title id="title">PayPal SEC RAG pipeline architecture</title>
+<desc id="desc">SEC ingestion, fixed and semantic chunking, MPNet embeddings, Pinecone storage, three retrieval experiments, Nebius generation, and RAGAS evaluation. A separate callout describes the interactive chain.</desc>
+<rect x="0" y="0" width="1400" height="2290" rx="0" fill="#ffffff" stroke="#ffffff" stroke-width="1.5"/>
+<rect x="0" y="0" width="1400" height="150" rx="0" fill="#102c4f" stroke="#102c4f" stroke-width="1.5"/>
+<text x="48" y="43" fill="#93c5fd" font-family="Arial, sans-serif" font-size="16" font-weight="700">PAYPAL  /  FINANCIAL RAG</text>
+<text x="48" y="88" fill="#ffffff" font-family="Arial, sans-serif" font-size="38" font-weight="700">SEC filings to evidence-backed answers</text>
+<text x="48" y="123" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="18" font-weight="400">Implementation architecture  •  paypal_sec_10k.ipynb  •  Current local reports: FY 2023–2025</text>
+<text x="48" y="189" fill="#1e293b" font-family="Arial, sans-serif" font-size="18" font-weight="700">01  /  INGEST &amp; PREPARE FILING EVIDENCE</text>
+<text x="1110" y="189" fill="#64748b" font-family="Arial, sans-serif" font-size="16" font-weight="400">Notebook steps 1–6</text>
+<rect x="48" y="210" width="400" height="145" rx="14" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+<text x="68" y="242" fill="#193e72" font-family="Arial, sans-serif" font-size="22" font-weight="700">SEC EDGAR · PYPL</text>
+<text x="68" y="272" fill="#475569" font-family="Arial, sans-serif" font-size="18" font-weight="400">PayPal Holdings, Inc. · CIK 0001633917</text>
+<text x="68" y="297" fill="#475569" font-family="Arial, sans-serif" font-size="18" font-weight="400">sec_edgar_downloader · latest 3 Form 10-Ks</text>
+<text x="68" y="322" fill="#475569" font-family="Arial, sans-serif" font-size="18" font-weight="400">Raw full-submission.txt + manifest.json</text>
+<rect x="500" y="210" width="380" height="145" rx="14" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+<text x="520" y="242" fill="#193e72" font-family="Arial, sans-serif" font-size="22" font-weight="700">Load &amp; preserve provenance</text>
+<text x="520" y="272" fill="#475569" font-family="Arial, sans-serif" font-size="18" font-weight="400">LangChain TextLoader + filing metadata</text>
+<text x="520" y="297" fill="#475569" font-family="Arial, sans-serif" font-size="18" font-weight="400">Source path, SEC URL, report / filing date</text>
+<text x="520" y="322" fill="#475569" font-family="Arial, sans-serif" font-size="18" font-weight="400">Accession number retained downstream</text>
+<rect x="932" y="210" width="420" height="145" rx="14" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+<text x="952" y="242" fill="#193e72" font-family="Arial, sans-serif" font-size="22" font-weight="700">Extract &amp; clean</text>
+<text x="952" y="272" fill="#475569" font-family="Arial, sans-serif" font-size="18" font-weight="400">Select main 10-K; exclude separate exhibits</text>
+<text x="952" y="297" fill="#475569" font-family="Arial, sans-serif" font-size="18" font-weight="400">Strip tags, decode entities, tidy whitespace</text>
+<text x="952" y="322" fill="#475569" font-family="Arial, sans-serif" font-size="18" font-weight="400">Persist cleaned text → documents.json</text>
+<polyline points="448,282 500,282" fill="none" stroke="#94a3b8" stroke-width="2"/>
+<polygon points="500,282 492.10175694298664,286.3148298474378 492.10175694298664,277.6851701525622" fill="#94a3b8"/>
+<polyline points="880,282 932,282" fill="none" stroke="#94a3b8" stroke-width="2"/>
+<polygon points="932,282 924.1017569429866,286.3148298474378 924.1017569429866,277.6851701525622" fill="#94a3b8"/>
+<polyline points="1142,355 1142,380 640,380 640,425" fill="none" stroke="#94a3b8" stroke-width="2"/>
+<polygon points="640,425 635.6851701525621,417.10175694298664 644.3148298474379,417.10175694298664" fill="#94a3b8"/>
+<polyline points="1142,380 1030,380 1030,425" fill="none" stroke="#94a3b8" stroke-width="2"/>
+<polygon points="1030,425 1025.6851701525623,417.10175694298664 1034.3148298474377,417.10175694298664" fill="#94a3b8"/>
+<text x="48" y="410" fill="#1e293b" font-family="Arial, sans-serif" font-size="18" font-weight="700">02  /  SPLIT THE SAME CLEANED REPORTS</text>
+<text x="1110" y="410" fill="#64748b" font-family="Arial, sans-serif" font-size="16" font-weight="400">Notebook steps 7–13</text>
+<rect x="48" y="425" width="640" height="162" rx="14" fill="#fff7ed" stroke="#fdba74" stroke-width="1.5"/>
+<text x="68" y="457" fill="#7c3715" font-family="Arial, sans-serif" font-size="22" font-weight="700">A  /  Fixed character chunks</text>
+<text x="68" y="487" fill="#475569" font-family="Arial, sans-serif" font-size="18" font-weight="400">RecursiveCharacterTextSplitter</text>
+<text x="68" y="512" fill="#475569" font-family="Arial, sans-serif" font-size="18" font-weight="400">Maximum 512 characters · target overlap 64 characters</text>
+<text x="68" y="537" fill="#475569" font-family="Arial, sans-serif" font-size="18" font-weight="400">Preserve filing metadata + start_index</text>
+<text x="68" y="562" fill="#475569" font-family="Arial, sans-serif" font-size="18" font-weight="400">Stable SHA-256 IDs for repeatable uploads</text>
+<rect x="712" y="425" width="640" height="162" rx="14" fill="#f5f3ff" stroke="#c4b5fd" stroke-width="1.5"/>
+<text x="732" y="457" fill="#50328a" font-family="Arial, sans-serif" font-size="22" font-weight="700">B  /  Semantic chunks</text>
+<text x="732" y="487" fill="#475569" font-family="Arial, sans-serif" font-size="18" font-weight="400">SemanticChunker uses MPNet · buffer 1 · percentile 95</text>
+<text x="732" y="512" fill="#475569" font-family="Arial, sans-serif" font-size="18" font-weight="400">Secondary split: at most 8,000 characters, no overlap</text>
+<text x="732" y="537" fill="#475569" font-family="Arial, sans-serif" font-size="18" font-weight="400">Keep parent / piece offsets · stable SHA-256 IDs</text>
+<text x="732" y="562" fill="#475569" font-family="Arial, sans-serif" font-size="18" font-weight="400">Validate text + metadata payload ≤ 40,000 bytes</text>
+<polyline points="370,587 370,637" fill="none" stroke="#94a3b8" stroke-width="2"/>
+<polygon points="370,637 365.6851701525622,629.1017569429866 374.3148298474378,629.1017569429866" fill="#94a3b8"/>
+<polyline points="1030,587 1030,637" fill="none" stroke="#94a3b8" stroke-width="2"/>
+<polygon points="1030,637 1025.6851701525623,629.1017569429866 1034.3148298474377,629.1017569429866" fill="#94a3b8"/>
+<text x="48" y="622" fill="#1e293b" font-family="Arial, sans-serif" font-size="18" font-weight="700">03  /  EMBED &amp; STORE</text>
+<text x="1110" y="622" fill="#64748b" font-family="Arial, sans-serif" font-size="16" font-weight="400">Notebook steps 8–14</text>
+<rect x="48" y="637" width="1304" height="112" rx="14" fill="#f0fdfa" stroke="#5eead4" stroke-width="1.5"/>
+<text x="68" y="669" fill="#125c56" font-family="Arial, sans-serif" font-size="22" font-weight="700">Shared local embedding model · normalized 768-dimensional vectors</text>
+<text x="68" y="699" fill="#475569" font-family="Arial, sans-serif" font-size="18" font-weight="400">sentence-transformers/multi-qa-mpnet-base-cos-v1 via HuggingFaceEmbeddings</text>
+<text x="68" y="724" fill="#475569" font-family="Arial, sans-serif" font-size="18" font-weight="400">Used for semantic boundaries, document embeddings, and question embeddings</text>
+<polyline points="370,749 370,775" fill="none" stroke="#94a3b8" stroke-width="2"/>
+<polygon points="370,775 365.6851701525622,767.1017569429866 374.3148298474378,767.1017569429866" fill="#94a3b8"/>
+<polyline points="1030,749 1030,775" fill="none" stroke="#94a3b8" stroke-width="2"/>
+<polygon points="1030,775 1025.6851701525623,767.1017569429866 1034.3148298474377,767.1017569429866" fill="#94a3b8"/>
+<rect x="48" y="775" width="640" height="112" rx="14" fill="#fff7ed" stroke="#fdba74" stroke-width="1.5"/>
+<text x="68" y="807" fill="#7c3715" font-family="Arial, sans-serif" font-size="22" font-weight="700">Pinecone · namespace=&quot;fixed&quot;</text>
+<text x="68" y="837" fill="#475569" font-family="Arial, sans-serif" font-size="18" font-weight="400">Cosine index · vectors + chunk text + source metadata</text>
+<text x="68" y="862" fill="#475569" font-family="Arial, sans-serif" font-size="18" font-weight="400">Replace fixed namespace; upload batches of 100</text>
+<rect x="712" y="775" width="640" height="112" rx="14" fill="#f5f3ff" stroke="#c4b5fd" stroke-width="1.5"/>
+<text x="732" y="807" fill="#50328a" font-family="Arial, sans-serif" font-size="22" font-weight="700">Pinecone · namespace=&quot;semantic&quot;</text>
+<text x="732" y="837" fill="#475569" font-family="Arial, sans-serif" font-size="18" font-weight="400">Same index and filings · independent chunk collection</text>
+<text x="732" y="862" fill="#475569" font-family="Arial, sans-serif" font-size="18" font-weight="400">Replace semantic namespace; upload batches of 100</text>
+<text x="48" y="916" fill="#475569" font-family="Arial, sans-serif" font-size="17" font-weight="400">Missing index: create serverless on AWS us-east-1. Existing index: validate 768 dimensions and cosine metric.</text>
+<text x="48" y="961" fill="#1e293b" font-family="Arial, sans-serif" font-size="18" font-weight="700">04  /  RETRIEVE &amp; COMPARE THREE EXPERIMENTS</text>
+<text x="1110" y="961" fill="#64748b" font-family="Arial, sans-serif" font-size="16" font-weight="400">Notebook step 21</text>
+<rect x="48" y="982" width="1304" height="88" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="68" y="1014" fill="#334155" font-family="Arial, sans-serif" font-size="22" font-weight="700">Question → same MPNet model → cosine similarity search</text>
+<text x="68" y="1044" fill="#475569" font-family="Arial, sans-serif" font-size="18" font-weight="400">10 evaluation questions · no date filter in experiments · semantic candidate pool shared by B and C</text>
+<polyline points="267,1070 267,1100" fill="none" stroke="#94a3b8" stroke-width="2"/>
+<polygon points="267,1100 262.6851701525622,1092.1017569429866 271.3148298474378,1092.1017569429866" fill="#94a3b8"/>
+<polyline points="700,1070 700,1100" fill="none" stroke="#94a3b8" stroke-width="2"/>
+<polygon points="700,1100 695.6851701525621,1092.1017569429866 704.3148298474379,1092.1017569429866" fill="#94a3b8"/>
+<polyline points="1133,1070 1133,1100" fill="none" stroke="#94a3b8" stroke-width="2"/>
+<polygon points="1133,1100 1128.6851701525623,1092.1017569429866 1137.3148298474377,1092.1017569429866" fill="#94a3b8"/>
+<rect x="48" y="1100" width="416" height="184" rx="14" fill="#fff7ed" stroke="#fdba74" stroke-width="1.5"/>
+<text x="68" y="1132" fill="#7c3715" font-family="Arial, sans-serif" font-size="22" font-weight="700">A  /  fixed_only</text>
+<text x="68" y="1162" fill="#475569" font-family="Arial, sans-serif" font-size="18" font-weight="400">Search fixed namespace → top 3</text>
+<text x="68" y="1187" fill="#475569" font-family="Arial, sans-serif" font-size="18" font-weight="400">Keep cosine retrieval order</text>
+<text x="68" y="1212" fill="#475569" font-family="Arial, sans-serif" font-size="18" font-weight="400">No reranking</text>
+<text x="68" y="1237" fill="#475569" font-family="Arial, sans-serif" font-size="18" font-weight="400">3 passages → generation</text>
+<rect x="492" y="1100" width="416" height="184" rx="14" fill="#f5f3ff" stroke="#c4b5fd" stroke-width="1.5"/>
+<text x="512" y="1132" fill="#50328a" font-family="Arial, sans-serif" font-size="22" font-weight="700">B  /  semantic_only</text>
+<text x="512" y="1162" fill="#475569" font-family="Arial, sans-serif" font-size="18" font-weight="400">Search semantic namespace → top 10</text>
+<text x="512" y="1187" fill="#475569" font-family="Arial, sans-serif" font-size="18" font-weight="400">Keep first 3 in cosine retrieval order</text>
+<text x="512" y="1212" fill="#475569" font-family="Arial, sans-serif" font-size="18" font-weight="400">No reranking</text>
+<text x="512" y="1237" fill="#475569" font-family="Arial, sans-serif" font-size="18" font-weight="400">3 passages → generation</text>
+<rect x="936" y="1100" width="416" height="184" rx="14" fill="#f0fdf4" stroke="#86cf9a" stroke-width="1.5"/>
+<text x="956" y="1132" fill="#205a35" font-family="Arial, sans-serif" font-size="22" font-weight="700">C  /  semantic_rerank</text>
+<text x="956" y="1162" fill="#475569" font-family="Arial, sans-serif" font-size="18" font-weight="400">Reuse B&#x27;s 10 semantic candidates</text>
+<text x="956" y="1187" fill="#475569" font-family="Arial, sans-serif" font-size="18" font-weight="400">Qwen on Nebius scores usefulness 0–4</text>
+<text x="956" y="1212" fill="#475569" font-family="Arial, sans-serif" font-size="18" font-weight="400">Stable score sort → retain top 3</text>
+<text x="956" y="1237" fill="#475569" font-family="Arial, sans-serif" font-size="18" font-weight="400">Qwen/Qwen3-30B-A3B-Instruct-2507</text>
+<text x="956" y="1262" fill="#475569" font-family="Arial, sans-serif" font-size="18" font-weight="400">LLM scoring via /v1/chat/completions</text>
+<polyline points="267,1284 267,1337 700,1337 700,1383" fill="none" stroke="#94a3b8" stroke-width="2"/>
+<polygon points="700,1383 695.6851701525621,1375.1017569429866 704.3148298474379,1375.1017569429866" fill="#94a3b8"/>
+<polyline points="700,1284 700,1337" fill="none" stroke="#94a3b8" stroke-width="2"/>
+<polygon points="700,1337 695.6851701525621,1329.1017569429866 704.3148298474379,1329.1017569429866" fill="#94a3b8"/>
+<polyline points="1133,1284 1133,1337 700,1337" fill="none" stroke="#94a3b8" stroke-width="2"/>
+<polygon points="700,1337 707.8982430570134,1332.6851701525623 707.8982430570134,1341.3148298474377" fill="#94a3b8"/>
+<text x="48" y="1368" fill="#1e293b" font-family="Arial, sans-serif" font-size="18" font-weight="700">05  /  GENERATE A CITED ANSWER FOR EACH EXPERIMENT</text>
+<text x="1110" y="1368" fill="#64748b" font-family="Arial, sans-serif" font-size="16" font-weight="400">Notebook steps 18, 21</text>
+<rect x="48" y="1383" width="400" height="142" rx="14" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+<text x="68" y="1415" fill="#193e72" font-family="Arial, sans-serif" font-size="22" font-weight="700">Assemble evidence prompt</text>
+<text x="68" y="1445" fill="#475569" font-family="Arial, sans-serif" font-size="18" font-weight="400">Question + top 3 passages + metadata</text>
+<text x="68" y="1470" fill="#475569" font-family="Arial, sans-serif" font-size="18" font-weight="400">Assign source IDs [S1], [S2], [S3]</text>
+<text x="68" y="1495" fill="#475569" font-family="Arial, sans-serif" font-size="18" font-weight="400">Same prompt across A, B and C</text>
+<rect x="500" y="1383" width="400" height="142" rx="14" fill="#f5f3ff" stroke="#c4b5fd" stroke-width="1.5"/>
+<text x="520" y="1415" fill="#50328a" font-family="Arial, sans-serif" font-size="22" font-weight="700">Nebius answer generation</text>
+<text x="520" y="1445" fill="#475569" font-family="Arial, sans-serif" font-size="18" font-weight="400">Default: openai/gpt-oss-120b</text>
+<text x="520" y="1470" fill="#475569" font-family="Arial, sans-serif" font-size="18" font-weight="400">NEBIUS_GENERATION_MODEL override</text>
+<text x="520" y="1495" fill="#475569" font-family="Arial, sans-serif" font-size="18" font-weight="400">Temperature 0 · bounded 429 retries</text>
+<rect x="952" y="1383" width="400" height="142" rx="14" fill="#f0fdf4" stroke="#86cf9a" stroke-width="1.5"/>
+<text x="972" y="1415" fill="#205a35" font-family="Arial, sans-serif" font-size="22" font-weight="700">Answer + evidence trace</text>
+<text x="972" y="1445" fill="#475569" font-family="Arial, sans-serif" font-size="18" font-weight="400">Prompt requires citations and units</text>
+<text x="972" y="1470" fill="#475569" font-family="Arial, sans-serif" font-size="18" font-weight="400">Identify periods; abstain if unsupported</text>
+<text x="972" y="1495" fill="#475569" font-family="Arial, sans-serif" font-size="18" font-weight="400">Save contexts, metadata, usage, errors</text>
+<polyline points="448,1453 500,1453" fill="none" stroke="#94a3b8" stroke-width="2"/>
+<polygon points="500,1453 492.10175694298664,1457.3148298474377 492.10175694298664,1448.6851701525623" fill="#94a3b8"/>
+<polyline points="900,1453 952,1453" fill="none" stroke="#94a3b8" stroke-width="2"/>
+<polygon points="952,1453 944.1017569429866,1457.3148298474377 944.1017569429866,1448.6851701525623" fill="#94a3b8"/>
+<polyline points="1152,1525 1152,1552 700,1552 700,1598" fill="none" stroke="#94a3b8" stroke-width="2"/>
+<polygon points="700,1598 695.6851701525621,1590.1017569429866 704.3148298474379,1590.1017569429866" fill="#94a3b8"/>
+<text x="48" y="1583" fill="#1e293b" font-family="Arial, sans-serif" font-size="18" font-weight="700">06  /  EVALUATE SAVED ANSWERS &amp; COMPARE</text>
+<text x="1110" y="1583" fill="#64748b" font-family="Arial, sans-serif" font-size="16" font-weight="400">Notebook steps 20–23</text>
+<rect x="48" y="1598" width="400" height="164" rx="14" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+<text x="68" y="1630" fill="#193e72" font-family="Arial, sans-serif" font-size="22" font-weight="700">Reference evaluation set</text>
+<text x="68" y="1660" fill="#475569" font-family="Arial, sans-serif" font-size="18" font-weight="400">10 question / ground_truth pairs</text>
+<text x="68" y="1685" fill="#475569" font-family="Arial, sans-serif" font-size="18" font-weight="400">data/paypal_eval_dataset.json</text>
+<text x="68" y="1710" fill="#475569" font-family="Arial, sans-serif" font-size="18" font-weight="400">Evidence: paypal_eval_sources.json</text>
+<text x="68" y="1735" fill="#475569" font-family="Arial, sans-serif" font-size="18" font-weight="400">Ground truth used only for evaluation</text>
+<rect x="500" y="1598" width="400" height="164" rx="14" fill="#f0fdfa" stroke="#5eead4" stroke-width="1.5"/>
+<text x="520" y="1630" fill="#125c56" font-family="Arial, sans-serif" font-size="22" font-weight="700">RAGAS · Nebius judge</text>
+<text x="520" y="1660" fill="#475569" font-family="Arial, sans-serif" font-size="18" font-weight="400">Faithfulness · context precision · recall</text>
+<text x="520" y="1685" fill="#475569" font-family="Arial, sans-serif" font-size="18" font-weight="400">Default Qwen3-235B-A22B-Instruct-2507</text>
+<text x="520" y="1710" fill="#475569" font-family="Arial, sans-serif" font-size="18" font-weight="400">Full model prefix: Qwen/</text>
+<text x="520" y="1735" fill="#475569" font-family="Arial, sans-serif" font-size="18" font-weight="400">NEBIUS_EVAL_MODEL override</text>
+<rect x="952" y="1598" width="400" height="164" rx="14" fill="#f0fdf4" stroke="#86cf9a" stroke-width="1.5"/>
+<text x="972" y="1630" fill="#205a35" font-family="Arial, sans-serif" font-size="22" font-weight="700">Compare A / B / C</text>
+<text x="972" y="1660" fill="#475569" font-family="Arial, sans-serif" font-size="18" font-weight="400">Per-question scores + means</text>
+<text x="972" y="1685" fill="#475569" font-family="Arial, sans-serif" font-size="18" font-weight="400">Valid / missing score coverage</text>
+<text x="972" y="1710" fill="#475569" font-family="Arial, sans-serif" font-size="18" font-weight="400">Paired changes: B − A and C − B</text>
+<text x="972" y="1735" fill="#475569" font-family="Arial, sans-serif" font-size="18" font-weight="400">CSV / JSON + analysis_report.txt</text>
+<polyline points="448,1680 500,1680" fill="none" stroke="#94a3b8" stroke-width="2"/>
+<polygon points="500,1680 492.10175694298664,1684.3148298474377 492.10175694298664,1675.6851701525623" fill="#94a3b8"/>
+<polyline points="900,1680 952,1680" fill="none" stroke="#94a3b8" stroke-width="2"/>
+<polygon points="952,1680 944.1017569429866,1684.3148298474377 944.1017569429866,1675.6851701525623" fill="#94a3b8"/>
+<text x="48" y="1792" fill="#475569" font-family="Arial, sans-serif" font-size="17" font-weight="400">Results: data/experiments/&lt;run&gt;/results_*.json, traces.json, errors.json → ragas_&lt;run&gt;/ score and analysis files</text>
+<text x="48" y="1820" fill="#475569" font-family="Arial, sans-serif" font-size="17" font-weight="400">Ground truth is attached after generation. The small development set and model judgments do not establish a winning strategy.</text>
+<text x="48" y="1871" fill="#1e293b" font-family="Arial, sans-serif" font-size="18" font-weight="700">07  /  INTERACTIVE CHAIN &amp; INSPECTION</text>
+<text x="1110" y="1871" fill="#64748b" font-family="Arial, sans-serif" font-size="16" font-weight="400">Notebook steps 15–19</text>
+<rect x="48" y="1892" width="1304" height="140" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="68" y="1924" fill="#334155" font-family="Arial, sans-serif" font-size="22" font-weight="700">Notebook question → semantic retrieval (20 candidates) → optional Qwen reranking → top 3 → Nebius answer</text>
+<text x="68" y="1954" fill="#475569" font-family="Arial, sans-serif" font-size="18" font-weight="400">LangChain RunnableLambda: retrieve_rag_context | generate_rag_answer; use_reranker defaults to False.</text>
+<text x="68" y="1979" fill="#475569" font-family="Arial, sans-serif" font-size="18" font-weight="400">Optional metadata_filter (for example, report_date). The example and four-question end-to-end check enable reranking.</text>
+<text x="68" y="2004" fill="#475569" font-family="Arial, sans-serif" font-size="18" font-weight="400">Inspect passages, source dates and citation IDs in the notebook; end-to-end results saved to data/rag_e2e_results.json.</text>
+<rect x="48" y="2062" width="1304" height="132" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="68" y="2094" fill="#334155" font-family="Arial, sans-serif" font-size="16" font-weight="700">IMPLEMENTATION NOTES</text>
+<text x="68" y="2125" fill="#475569" font-family="Arial, sans-serif" font-size="17" font-weight="400">scripts/run_rag_experiments.py runs the three-experiment collector against existing namespaces; it does not write the index.</text>
+<text x="68" y="2152" fill="#475569" font-family="Arial, sans-serif" font-size="17" font-weight="400">Cleanup is basic; hidden inline XBRL may remain. Long semantic pieces may exceed MPNet&#x27;s input token limit.</text>
+<text x="68" y="2179" fill="#475569" font-family="Arial, sans-serif" font-size="17" font-weight="400">The diagram documents implemented flow and defaults; citation checks validate structure, while factual accuracy needs review.</text>
+<text x="48" y="2231" fill="#193e72" font-family="Arial, sans-serif" font-size="17" font-weight="700">STACK   LangChain  /  MPNet  /  Pinecone  /  Nebius  /  Qwen  /  GPT-OSS  /  RAGAS</text>
+<text x="48" y="2265" fill="#64748b" font-family="Arial, sans-serif" font-size="16" font-weight="400">Source: paypal_sec_10k.ipynb + scripts/run_rag_experiments.py  •  Architecture snapshot: 18 October 2026</text>
+</svg></main>
+<footer>Implementation source: <a href="paypal_sec_10k.ipynb">paypal_sec_10k.ipynb</a> and
+<a href="scripts/run_rag_experiments.py">run_rag_experiments.py</a>.
+Layout inspired by <a href="https://github.com/The-Gen-Academy/2B-Financial-RAG-Jev/blob/main/financial_rag_pipeline_architecture.html">The Gen Academy reference architecture</a>.
+The diagram is self-contained and works offline. On narrow screens, scroll horizontally to inspect details.</footer>
+</body></html>

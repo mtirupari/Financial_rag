@@ -1,0 +1,169 @@
+[
+  {
+    "question": "What were PayPal's total net revenues for the year ended December 31, 2024?",
+    "evidence": [
+      {
+        "report_date": "2024-12-31",
+        "filing_date": "2025-02-04",
+        "accession_number": "0001633917-25-000019",
+        "sec_url": "https://www.sec.gov/Archives/edgar/data/1633917/000163391725000019/pypl-20241231.htm",
+        "source": "/Users/monicareddytirupari/Documents/genacademy/Financial_RAG/data/sec_edgar/sec-edgar-filings/PYPL/10-K/0001633917-25-000019/full-submission.txt",
+        "excerpt": "CONSOLIDATED STATEMENTS OF INCOME (LOSS) Year Ended December 31, 2024 2023 2022 (In millions, except for per share amounts) Net revenues $ 31,797 $ 29,771 $ 27,518 Operating expenses: Transaction expense 15,697 14,385 12,173 Transaction and credit losses 1,442 1,682 1,572 Customer support and operations 1,768 1,919 2,120 Sales and marketing 2,001 1,809 2,257 Technology and development 2,979 2,973 3,253 General and administrative 2,147 2,059 2,099 Restructuring and other 438 ( 84 ) 207 Total operating expenses 26,472 24,743 23,681 Operating income 5,325 5,028 3,837 Other income (expense), net 4 383 ( 471 ) Income before income taxes 5,329 5,411 3,366 Income tax expense 1,182 1,165 947 Net income (loss) $ 4,147 $ 4,246 $ 2,419 Net income (loss) per share: Basic $ 4.03 $ 3.85 $ 2.10 Diluted $ 3.99 $ 3.84 $ 2.09 Weighted average shares: Basic 1,029 1,103 1,154 Diluted 1,039 1,107 1,158 The accompanying notes are an integral part of these consolidated financial statements. 59 Table of Contents PayPal Holdings, Inc. CONSOLIDATED STATEMENTS OF COMPREHENSIVE INCOME (LOSS) Year Ended December 31, 2024 2023 2022 (In millions) Net income (loss) $ 4,147 $ 4,246 $ 2,419 Other comprehensive income (loss), net of reclassification adjustments: Foreign currency translation adjustments (“CTA”) ( 204 ) ( 156 ) ( 305 ) Net investment hedges CTA gains (losses), net 122 192 ( 25 ) Tax (expense) benefit on net investment hedges CTA gains (losses), net ( 29 ) ( 44 ) 6 Unrealized gains (losses) on ca",
+        "sec_submission_url": "https://www.sec.gov/Archives/edgar/data/1633917/000163391725000019/0001633917-25-000019.txt"
+      }
+    ]
+  },
+  {
+    "question": "What were PayPal's basic and diluted GAAP earnings per share in 2024?",
+    "evidence": [
+      {
+        "report_date": "2024-12-31",
+        "filing_date": "2025-02-04",
+        "accession_number": "0001633917-25-000019",
+        "sec_url": "https://www.sec.gov/Archives/edgar/data/1633917/000163391725000019/pypl-20241231.htm",
+        "source": "/Users/monicareddytirupari/Documents/genacademy/Financial_RAG/data/sec_edgar/sec-edgar-filings/PYPL/10-K/0001633917-25-000019/full-submission.txt",
+        "excerpt": "CONSOLIDATED STATEMENTS OF INCOME (LOSS) Year Ended December 31, 2024 2023 2022 (In millions, except for per share amounts) Net revenues $ 31,797 $ 29,771 $ 27,518 Operating expenses: Transaction expense 15,697 14,385 12,173 Transaction and credit losses 1,442 1,682 1,572 Customer support and operations 1,768 1,919 2,120 Sales and marketing 2,001 1,809 2,257 Technology and development 2,979 2,973 3,253 General and administrative 2,147 2,059 2,099 Restructuring and other 438 ( 84 ) 207 Total operating expenses 26,472 24,743 23,681 Operating income 5,325 5,028 3,837 Other income (expense), net 4 383 ( 471 ) Income before income taxes 5,329 5,411 3,366 Income tax expense 1,182 1,165 947 Net income (loss) $ 4,147 $ 4,246 $ 2,419 Net income (loss) per share: Basic $ 4.03 $ 3.85 $ 2.10 Diluted $ 3.99 $ 3.84 $ 2.09 Weighted average shares: Basic 1,029 1,103 1,154 Diluted 1,039 1,107 1,158 The accompanying notes are an integral part of these consolidated financial statements. 59 Table of Contents PayPal Holdings, Inc. CONSOLIDATED STATEMENTS OF COMPREHENSIVE INCOME (LOSS) Year Ended December 31, 2024 2023 2022 (In millions) Net income (loss) $ 4,147 $ 4,246 $ 2,419 Other comprehensive income (loss), net of reclassification adjustments: Foreign currency translation adjustments (“CTA”) ( 204 ) ( 156 ) ( 305 ) Net investment hedges CTA gains (losses), net 122 192 ( 25 ) Tax (expense) benefit on net investment hedges CTA gains (losses), net ( 29 ) ( 44 ) 6 Unrealized gains (losses) on ca",
+        "sec_submission_url": "https://www.sec.gov/Archives/edgar/data/1633917/000163391725000019/0001633917-25-000019.txt"
+      }
+    ]
+  },
+  {
+    "question": "How much technology and development expense did PayPal report in 2024?",
+    "evidence": [
+      {
+        "report_date": "2024-12-31",
+        "filing_date": "2025-02-04",
+        "accession_number": "0001633917-25-000019",
+        "sec_url": "https://www.sec.gov/Archives/edgar/data/1633917/000163391725000019/pypl-20241231.htm",
+        "source": "/Users/monicareddytirupari/Documents/genacademy/Financial_RAG/data/sec_edgar/sec-edgar-filings/PYPL/10-K/0001633917-25-000019/full-submission.txt",
+        "excerpt": "CONSOLIDATED STATEMENTS OF INCOME (LOSS) Year Ended December 31, 2024 2023 2022 (In millions, except for per share amounts) Net revenues $ 31,797 $ 29,771 $ 27,518 Operating expenses: Transaction expense 15,697 14,385 12,173 Transaction and credit losses 1,442 1,682 1,572 Customer support and operations 1,768 1,919 2,120 Sales and marketing 2,001 1,809 2,257 Technology and development 2,979 2,973 3,253 General and administrative 2,147 2,059 2,099 Restructuring and other 438 ( 84 ) 207 Total operating expenses 26,472 24,743 23,681 Operating income 5,325 5,028 3,837 Other income (expense), net 4 383 ( 471 ) Income before income taxes 5,329 5,411 3,366 Income tax expense 1,182 1,165 947 Net income (loss) $ 4,147 $ 4,246 $ 2,419 Net income (loss) per share: Basic $ 4.03 $ 3.85 $ 2.10 Diluted $ 3.99 $ 3.84 $ 2.09 Weighted average shares: Basic 1,029 1,103 1,154 Diluted 1,039 1,107 1,158 The accompanying notes are an integral part of these consolidated financial statements. 59 Table of Contents PayPal Holdings, Inc. CONSOLIDATED STATEMENTS OF COMPREHENSIVE INCOME (LOSS) Year Ended December 31, 2024 2023 2022 (In millions) Net income (loss) $ 4,147 $ 4,246 $ 2,419 Other comprehensive income (loss), net of reclassification adjustments: Foreign currency translation adjustments (“CTA”) ( 204 ) ( 156 ) ( 305 ) Net investment hedges CTA gains (losses), net 122 192 ( 25 ) Tax (expense) benefit on net investment hedges CTA gains (losses), net ( 29 ) ( 44 ) 6 Unrealized gains (losses) on ca",
+        "sec_submission_url": "https://www.sec.gov/Archives/edgar/data/1633917/000163391725000019/0001633917-25-000019.txt"
+      }
+    ]
+  },
+  {
+    "question": "According to PayPal's 2024 Form 10-K, what business risks could cybersecurity breaches create?",
+    "evidence": [
+      {
+        "report_date": "2024-12-31",
+        "filing_date": "2025-02-04",
+        "accession_number": "0001633917-25-000019",
+        "sec_url": "https://www.sec.gov/Archives/edgar/data/1633917/000163391725000019/pypl-20241231.htm",
+        "source": "/Users/monicareddytirupari/Documents/genacademy/Financial_RAG/data/sec_edgar/sec-edgar-filings/PYPL/10-K/0001633917-25-000019/full-submission.txt",
+        "excerpt": "These or other cybersecurity breaches and other exploited security vulnerabilities have subjected us and could further subject us to significant costs and third-party liabilities, result in improper disclosure of data and violations of applicable privacy and other laws, require us to change our business practices, cause us to incur significant remediation costs, lead to loss of customer confidence in, or decreased use of, our products and services, damage our reputation and brands, divert the attention of management from the operation of our business, result in significant compensation or contractual penalties from us to our customers and their business partners as a result of losses to or claims by them, or expose us to litigation, regulatory investigations, and significant fines and penalties. Moreover, under payment card network rules and our contracts with our payment processors, if there is a breach of payment card information stored by us or our direct payment card processing vendors, we could be liable to the payment card issuing banks, including for their cost of issuing new ",
+        "sec_submission_url": "https://www.sec.gov/Archives/edgar/data/1633917/000163391725000019/0001633917-25-000019.txt"
+      }
+    ]
+  },
+  {
+    "question": "What was PayPal's GAAP net income for the year ended December 31, 2024?",
+    "evidence": [
+      {
+        "report_date": "2024-12-31",
+        "filing_date": "2025-02-04",
+        "accession_number": "0001633917-25-000019",
+        "sec_url": "https://www.sec.gov/Archives/edgar/data/1633917/000163391725000019/pypl-20241231.htm",
+        "source": "/Users/monicareddytirupari/Documents/genacademy/Financial_RAG/data/sec_edgar/sec-edgar-filings/PYPL/10-K/0001633917-25-000019/full-submission.txt",
+        "excerpt": "CONSOLIDATED STATEMENTS OF INCOME (LOSS) Year Ended December 31, 2024 2023 2022 (In millions, except for per share amounts) Net revenues $ 31,797 $ 29,771 $ 27,518 Operating expenses: Transaction expense 15,697 14,385 12,173 Transaction and credit losses 1,442 1,682 1,572 Customer support and operations 1,768 1,919 2,120 Sales and marketing 2,001 1,809 2,257 Technology and development 2,979 2,973 3,253 General and administrative 2,147 2,059 2,099 Restructuring and other 438 ( 84 ) 207 Total operating expenses 26,472 24,743 23,681 Operating income 5,325 5,028 3,837 Other income (expense), net 4 383 ( 471 ) Income before income taxes 5,329 5,411 3,366 Income tax expense 1,182 1,165 947 Net income (loss) $ 4,147 $ 4,246 $ 2,419 Net income (loss) per share: Basic $ 4.03 $ 3.85 $ 2.10 Diluted $ 3.99 $ 3.84 $ 2.09 Weighted average shares: Basic 1,029 1,103 1,154 Diluted 1,039 1,107 1,158 The accompanying notes are an integral part of these consolidated financial statements. 59 Table of Contents PayPal Holdings, Inc. CONSOLIDATED STATEMENTS OF COMPREHENSIVE INCOME (LOSS) Year Ended December 31, 2024 2023 2022 (In millions) Net income (loss) $ 4,147 $ 4,246 $ 2,419 Other comprehensive income (loss), net of reclassification adjustments: Foreign currency translation adjustments (“CTA”) ( 204 ) ( 156 ) ( 305 ) Net investment hedges CTA gains (losses), net 122 192 ( 25 ) Tax (expense) benefit on net investment hedges CTA gains (losses), net ( 29 ) ( 44 ) 6 Unrealized gains (losses) on ca",
+        "sec_submission_url": "https://www.sec.gov/Archives/edgar/data/1633917/000163391725000019/0001633917-25-000019.txt"
+      }
+    ]
+  },
+  {
+    "question": "What were PayPal's transaction revenues in 2024?",
+    "evidence": [
+      {
+        "report_date": "2024-12-31",
+        "filing_date": "2025-02-04",
+        "accession_number": "0001633917-25-000019",
+        "sec_url": "https://www.sec.gov/Archives/edgar/data/1633917/000163391725000019/pypl-20241231.htm",
+        "source": "/Users/monicareddytirupari/Documents/genacademy/Financial_RAG/data/sec_edgar/sec-edgar-filings/PYPL/10-K/0001633917-25-000019/full-submission.txt",
+        "excerpt": "ollowing table presents our revenue disaggregated by primary geographical market and category: Year Ended December 31, 2024 2023 2022 (In millions) Primary geographical markets U.S. $ 18,267 $ 17,253 $ 15,807 Other countries (1) 13,530 12,518 11,711 Total net revenues (2) $ 31,797 $ 29,771 $ 27,518 Revenue category Transaction revenues $ 28,842 $ 26,857 $ 25,206 Revenues from other value added services 2,955 2,914 2,312 Total net revenues (2) $ 31,797 $ 29,771 $ 27,518 (1) No single country included in the other countries category generated more than 10% of total net revenues. (2) Total net revenues include $ 2.1 billion, ",
+        "sec_submission_url": "https://www.sec.gov/Archives/edgar/data/1633917/000163391725000019/0001633917-25-000019.txt"
+      }
+    ]
+  },
+  {
+    "question": "What were PayPal's revenues from other value added services in 2024?",
+    "evidence": [
+      {
+        "report_date": "2024-12-31",
+        "filing_date": "2025-02-04",
+        "accession_number": "0001633917-25-000019",
+        "sec_url": "https://www.sec.gov/Archives/edgar/data/1633917/000163391725000019/pypl-20241231.htm",
+        "source": "/Users/monicareddytirupari/Documents/genacademy/Financial_RAG/data/sec_edgar/sec-edgar-filings/PYPL/10-K/0001633917-25-000019/full-submission.txt",
+        "excerpt": "ollowing table presents our revenue disaggregated by primary geographical market and category: Year Ended December 31, 2024 2023 2022 (In millions) Primary geographical markets U.S. $ 18,267 $ 17,253 $ 15,807 Other countries (1) 13,530 12,518 11,711 Total net revenues (2) $ 31,797 $ 29,771 $ 27,518 Revenue category Transaction revenues $ 28,842 $ 26,857 $ 25,206 Revenues from other value added services 2,955 2,914 2,312 Total net revenues (2) $ 31,797 $ 29,771 $ 27,518 (1) No single country included in the other countries category generated more than 10% of total net revenues. (2) Total net revenues include $ 2.1 billion, ",
+        "sec_submission_url": "https://www.sec.gov/Archives/edgar/data/1633917/000163391725000019/0001633917-25-000019.txt"
+      }
+    ]
+  },
+  {
+    "question": "What was PayPal's total payment volume in 2023, and how many active accounts did it have at December 31, 2023?",
+    "evidence": [
+      {
+        "report_date": "2023-12-31",
+        "filing_date": "2024-02-08",
+        "accession_number": "0001633917-24-000024",
+        "sec_url": "https://www.sec.gov/Archives/edgar/data/1633917/000163391724000024/pypl-20231231.htm",
+        "source": "/Users/monicareddytirupari/Documents/genacademy/Financial_RAG/data/sec_edgar/sec-edgar-filings/PYPL/10-K/0001633917-24-000024/full-submission.txt",
+        "excerpt": "In 2023, we processed $1.53 trillion of TPV. • Trusted brands — we hav",
+        "sec_submission_url": "https://www.sec.gov/Archives/edgar/data/1633917/000163391724000024/0001633917-24-000024.txt"
+      },
+      {
+        "report_date": "2023-12-31",
+        "filing_date": "2024-02-08",
+        "accession_number": "0001633917-24-000024",
+        "sec_url": "https://www.sec.gov/Archives/edgar/data/1633917/000163391724000024/pypl-20231231.htm",
+        "source": "/Users/monicareddytirupari/Documents/genacademy/Financial_RAG/data/sec_edgar/sec-edgar-filings/PYPL/10-K/0001633917-24-000024/full-submission.txt",
+        "excerpt": "stomers. We operate a global, two-sided network at scale that connects merchants and consumers with 426 million active accounts (consisting of 391 million consumer active accounts and 35 million merchant active accounts) across approximately 200 markets as of December 31, 2023. We offer our customers the flexibility to use their PayPal or Venmo accounts to send and receive payments for goods and s",
+        "sec_submission_url": "https://www.sec.gov/Archives/edgar/data/1633917/000163391724000024/0001633917-24-000024.txt"
+      }
+    ]
+  },
+  {
+    "question": "What was PayPal's total payment volume in 2025, and how many active accounts did it have at December 31, 2025?",
+    "evidence": [
+      {
+        "report_date": "2025-12-31",
+        "filing_date": "2026-02-03",
+        "accession_number": "0001633917-26-000024",
+        "sec_url": "https://www.sec.gov/Archives/edgar/data/1633917/000163391726000024/pypl-20251231.htm",
+        "source": "/Users/monicareddytirupari/Documents/genacademy/Financial_RAG/data/sec_edgar/sec-edgar-filings/PYPL/10-K/0001633917-26-000024/full-submission.txt",
+        "excerpt": "KEY PERFORMANCE METRICS In 2025, we processed $1.79 trillion of total payment volume (“TPV”), an increase of 7% compared to 2024, and 25.4 billion payment transactions, a decrease of 4% compared to 2024. As of December 31, 2025, we had 439 million active accounts, an increase of 1% compared to December 31, 2024. We measure the scale of our platform and the relevance of our products and services to our customers through certain metrics, including TPV, payment transactions, and active accounts: TP",
+        "sec_submission_url": "https://www.sec.gov/Archives/edgar/data/1633917/000163391726000024/0001633917-26-000024.txt"
+      }
+    ]
+  },
+  {
+    "question": "How did PayPal's year-end active accounts change across 2023, 2024, and 2025, and what was the absolute increase from 2023 to 2025?",
+    "evidence": [
+      {
+        "report_date": "2023-12-31",
+        "filing_date": "2024-02-08",
+        "accession_number": "0001633917-24-000024",
+        "sec_url": "https://www.sec.gov/Archives/edgar/data/1633917/000163391724000024/pypl-20231231.htm",
+        "source": "/Users/monicareddytirupari/Documents/genacademy/Financial_RAG/data/sec_edgar/sec-edgar-filings/PYPL/10-K/0001633917-24-000024/full-submission.txt",
+        "excerpt": "stomers. We operate a global, two-sided network at scale that connects merchants and consumers with 426 million active accounts (consisting of 391 million consumer active accounts and 35 million merchant active accounts) across approximately 200 markets as of December 31, 2023. We offer our customers the flexibility to use their PayPal or Venmo accounts to send and receive payments for goods and s",
+        "sec_submission_url": "https://www.sec.gov/Archives/edgar/data/1633917/000163391724000024/0001633917-24-000024.txt"
+      },
+      {
+        "report_date": "2024-12-31",
+        "filing_date": "2025-02-04",
+        "accession_number": "0001633917-25-000019",
+        "sec_url": "https://www.sec.gov/Archives/edgar/data/1633917/000163391725000019/pypl-20241231.htm",
+        "source": "/Users/monicareddytirupari/Documents/genacademy/Financial_RAG/data/sec_edgar/sec-edgar-filings/PYPL/10-K/0001633917-25-000019/full-submission.txt",
+        "excerpt": "KEY PERFORMANCE METRICS In 2024, we processed $1.68 trillion of total payment volume (“TPV”), an increase of 10% compared to 2023, and 26.3 billion payment transactions, an increase of 5% compared to 2023. As of December 31, 2024, we had 434 million active accounts, an increase of 2% compared to December 31, 2023. We measure the scale of our platform and the relevance of our products and services to our customers through certain metrics, including TPV, payment transactions, and active accounts: ",
+        "sec_submission_url": "https://www.sec.gov/Archives/edgar/data/1633917/000163391725000019/0001633917-25-000019.txt"
+      },
+      {
+        "report_date": "2025-12-31",
+        "filing_date": "2026-02-03",
+        "accession_number": "0001633917-26-000024",
+        "sec_url": "https://www.sec.gov/Archives/edgar/data/1633917/000163391726000024/pypl-20251231.htm",
+        "source": "/Users/monicareddytirupari/Documents/genacademy/Financial_RAG/data/sec_edgar/sec-edgar-filings/PYPL/10-K/0001633917-26-000024/full-submission.txt",
+        "excerpt": "KEY PERFORMANCE METRICS In 2025, we processed $1.79 trillion of total payment volume (“TPV”), an increase of 7% compared to 2024, and 25.4 billion payment transactions, a decrease of 4% compared to 2024. As of December 31, 2025, we had 439 million active accounts, an increase of 1% compared to December 31, 2024. We measure the scale of our platform and the relevance of our products and services to our customers through certain metrics, including TPV, payment transactions, and active accounts: TP",
+        "sec_submission_url": "https://www.sec.gov/Archives/edgar/data/1633917/000163391726000024/0001633917-26-000024.txt"
+      }
+    ]
+  }
+]
